@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/CindrInc/masterani-api/issues"
   },
-  "homepage": "https://github.com/CindrInc/masterani-api#readme"
+  "homepage": "https://github.com/CindrInc/masterani-api#readme",
+  "dependencies": {
+    "request": "^2.85.0"
+  }
 }
