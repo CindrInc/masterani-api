@@ -1,0 +1,22 @@
+{
+  "name": "masterani",
+  "version": "1.0.0",
+  "description": "API for masterani.me",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CindrInc/masterani-api.git"
+  },
+  "keywords": [
+    "masterani"
+  ],
+  "author": "Cindr™",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CindrInc/masterani-api/issues"
+  },
+  "homepage": "https://github.com/CindrInc/masterani-api#readme"
+}
