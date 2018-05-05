@@ -1,2 +1,4 @@
-# masterani-api
-API for masterani.me
+# MASTERANI.me API
+
+
+Currently a work in progress...

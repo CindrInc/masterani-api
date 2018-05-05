@@ -99,5 +99,5 @@ let masterani = {
 	}
 }
 
-masterani.search("naruto");
+module.exports = masterani;
 
