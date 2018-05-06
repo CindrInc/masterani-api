@@ -49,7 +49,7 @@ const TRENDING_URL = BASE_ANIME_URL + "trending";
  * @type {[type]}
  */
 const ANIME_INFO_URL = BASE_ANIME_URL + "%s";
-const DETAILED_ANIME_URL = BASE_ANIME_URL + "%s/detailed";
+const DETAILED_ANIME_INFO_URL = BASE_ANIME_URL + "%s/detailed";
 
 /* Search URL Params
  * {search} - Required
@@ -92,12 +92,71 @@ let masterani = {
 		});
 	},
 	search_limited: function(query, callback) {
+		request(ANIME_SEARCH_URL_LIMITED.format(query), (err, res, body) => {
+			if(err) {
+				callback(err);
+				return;
+			}
 
+			callback(null, JSON.parse(body));
+		});
 	},
-	anime: function(id) {
+	anime: function(id, callback) {
+		request(DETAILED_ANIME_INFO_URL.format(id), (err, res, body) => {
+			if(err) {
+				callback(err);
+				return;
+			}
 
-	}
+			callback(null, JSON.parse(body));
+		});
+	},
+	anime_basic: function(id, callback) {
+		request(ANIME_INFO_URL.format(id), (err, res, body) => {
+			if(err) {
+				callback(err);
+				return;
+			}
+
+			callback(null, JSON.parse(body));
+		});
+	},
+	releases: function(callback) {
+		request(RELEASES_URL, (err, res, body) => {
+			if(err) {
+				callback(err);
+				return;
+			}
+
+			callback(null, JSON.parse(body));
+		});
+	},
+	trending: function(callback) {
+		request(TRENDING_URL, (err, res, body) => {
+			if(err) {
+				callback(err);
+				return;
+			}
+
+			callback(null, JSON.parse(body));
+		});
+	},
+	sortedAnime: function(order = "SCORE_HIGH", pageNumber = 1, type, status) {
+		let url = BASE_FILTER_URL.format(sort.order[order]);
+
+		if(type) {
+			url += FILTER_TYPE.format(sort.type[type]);
+		}
+		if(status) {
+			url += FILTER_STATUS.format(sort.status[status]);
+		}
+
+		url += FILTER_PAGE.format(pageNumber);
+	},
+	imagesObj: imageCDN
 }
+masterani.sort_identifiers = sort;
+
+
 
 module.exports = masterani;
-
